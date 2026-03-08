@@ -2,8 +2,8 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DM Premium - Versão Final Otimizada</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>DM Premium - Oficial</title>
     <style>
         :root {
             --cor-principal: #ff0000;
@@ -12,32 +12,39 @@
             --cor-texto: #ffffff;
         }
 
-        /* TELA DE LOGIN */
+        body {
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            margin: 0; padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* TELA DE LOGIN BLINDADA */
         #tela-login {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             background-color: var(--cor-fundo);
             display: flex; align-items: center; justify-content: center;
-            z-index: 9999;
+            z-index: 10000;
         }
 
         .caixa-login {
             background: var(--cor-card);
-            padding: 40px;
+            padding: 30px;
             border-radius: 15px;
             text-align: center;
             border: 1px solid #333;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-            width: 90%;
-            max-width: 350px;
+            width: 85%;
+            max-width: 320px;
         }
 
-        .caixa-login h1 { color: var(--cor-principal); margin-bottom: 20px; font-family: sans-serif; }
+        .caixa-login h1 { color: var(--cor-principal); margin: 0 0 20px 0; }
 
         .caixa-login input {
             width: 100%;
-            padding: 12px;
-            margin-bottom: 20px;
+            padding: 15px;
+            margin-bottom: 15px;
             border-radius: 8px;
             border: 1px solid #444;
             background: #000;
@@ -47,11 +54,9 @@
             outline: none;
         }
 
-        .caixa-login input:focus { border-color: var(--cor-principal); }
-
         .caixa-login button {
             width: 100%;
-            padding: 12px;
+            padding: 15px;
             background: var(--cor-principal);
             color: white;
             border: none;
@@ -61,80 +66,17 @@
             font-size: 16px;
         }
 
-        .caixa-login button:active { transform: scale(0.98); }
-
-        /* ESCONDER SITE POR PADRÃO */
+        /* ESCONDER SITE */
         #conteudo-site { display: none; }
 
-        /* ESTILOS DO SITE */
-        body {
-            background-color: var(--cor-fundo);
-            color: var(--cor-texto);
-            font-family: 'Segoe UI', Roboto, sans-serif;
-            margin: 0; padding: 0;
-            overflow-x: hidden;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        .header {
-            background-color: rgba(11, 11, 11, 0.95);
-            padding: 12px;
-            display: flex; justify-content: center;
-            border-bottom: 1px solid #222;
-            position: sticky; top: 0; z-index: 100;
-            backdrop-filter: blur(10px);
-        }
-
-        #lupa {
-            width: 90%; max-width: 500px; padding: 10px 18px;
-            border-radius: 20px; border: 1px solid #333;
-            background-color: #000; color: white; outline: none;
-            transition: border 0.3s;
-        }
-        #lupa:focus { border-color: var(--cor-principal); }
-
-        .container {
-            max-width: 1200px; margin: auto;
-            display: flex; flex-wrap: wrap; gap: 20px; padding: 15px;
-        }
-
-        .area-principal { flex: 2; min-width: 320px; }
-
-        .video-wrapper {
-            position: relative;
-            width: 100%;
-            background-color: #000;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-
-        video { width: 100%; aspect-ratio: 16 / 9; display: block; cursor: pointer; }
-
-        .area-lateral { flex: 1; min-width: 300px; }
-        
-        .titulo-sessao {
-            font-size: 16px; margin-bottom: 15px; color: #888;
-            text-transform: uppercase; letter-spacing: 1px;
-            border-left: 3px solid var(--cor-principal); padding-left: 10px;
-        }
-
-        .card-video {
-            display: flex; gap: 12px; cursor: pointer;
-            padding: 10px; margin-bottom: 8px;
-            border-radius: 8px; transition: background 0.2s;
-            text-decoration: none; color: white;
-        }
-        .card-video:hover { background-color: var(--cor-card); }
-
-        .thumb-pequena { width: 130px; height: 75px; background-color: #222; border-radius: 6px; object-fit: cover; }
-        .info-card h4 { margin: 0; font-size: 14px; color: #eee; }
-        .info-card p { margin: 4px 0 0 0; font-size: 12px; color: #666; }
-
-        @media (max-width: 850px) {
-            .container { flex-direction: column; }
-            .area-lateral { width: 100%; }
-        }
+        /* ESTILOS DO PLAYER */
+        .header { background: #000; padding: 15px; display: flex; justify-content: center; border-bottom: 1px solid #222; }
+        #lupa { width: 90%; padding: 10px; border-radius: 20px; border: 1px solid #333; background: #111; color: #fff; }
+        .container { padding: 15px; }
+        .video-wrapper { width: 100%; background: #000; border-radius: 12px; overflow: hidden; }
+        video { width: 100%; aspect-ratio: 16/9; display: block; }
+        .card-video { display: flex; gap: 10px; margin-top: 15px; background: #161616; padding: 10px; border-radius: 8px; }
+        .thumb-pequena { width: 100px; height: 60px; border-radius: 4px; object-fit: cover; }
     </style>
 </head>
 <body>
@@ -142,389 +84,90 @@
     <div id="tela-login">
         <div class="caixa-login">
             <h1>DM Premium</h1>
-            <p style="margin-bottom: 15px; color: #ccc;">Acesso Restrito</p>
-            <input type="password" id="campo-senha" placeholder="Digite a senha...">
-            <button onclick="verificarSenha()">ENTRAR</button>
-            <p id="msg-erro" style="color: var(--cor-principal); font-size: 13px; margin-top: 15px; display: none;">Senha Incorreta!</p>
+            <input type="text" id="campo-senha" placeholder="Digite a senha..." autocomplete="off">
+            <button type="button" onclick="verificarSenha()">ENTRAR AGORA</button>
+            <p id="msg-erro" style="color: red; font-size: 13px; margin-top: 15px; display: none;">Senha Incorreta!</p>
         </div>
     </div>
 
     <div id="conteudo-site">
         <div class="header">
-            <input type="text" id="lupa" placeholder="🔍 Buscar conteúdo...">
+            <input type="text" id="lupa" placeholder="🔍 Buscar...">
         </div>
-
         <div class="container">
-            <div class="area-principal">
-                <div class="video-wrapper" id="video-container">
-                    <video id="video-main" controls playsinline preload="metadata" poster="fotovd7.jpg">
-                        <source id="video-source" src="video1.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <h2 id="titulo-atual" style="font-size: 1.2rem; margin: 15px 0 5px;">Vídeo Premium 1</h2>
-                <p style="color: #555; font-size: 12px;">Dica: Toque duplo para pular 10s | Use as setas no teclado.</p>
+            <div class="video-wrapper" id="video-container">
+                <video id="video-main" controls playsinline poster="fotovd7.jpg">
+                    <source src="video1.mp4" type="video/mp4">
+                </video>
             </div>
-
-            <div class="area-lateral">
-                <h3 class="titulo-sessao">Mais Vídeos</h3>
-                <div id="lista-videos"></div>
-            </div>
+            <h2 id="titulo-atual" style="font-size: 1.1rem;">Vídeo Principal</h2>
+            
+            <h3 style="color: #888; margin-top: 30px;">Mais Vídeos</h3>
+            <div id="lista-videos"></div>
         </div>
     </div>
 
     <script>
-        // --- SISTEMA DE LOGIN ---
+        // SENHA: DMpr10
         function verificarSenha() {
-            const senhaDigitada = document.getElementById('campo-senha').value;
-            const senhaCorreta = "DMpr10";
+            const senhaDigitada = document.getElementById('campo-senha').value.trim();
             const msgErro = document.getElementById('msg-erro');
 
-            if (senhaDigitada === senhaCorreta) {
+            if (senhaDigitada === "DMpr10") {
+                document.getElementById('tela-login').style.removeProperty('display');
                 document.getElementById('tela-login').style.display = 'none';
                 document.getElementById('conteudo-site').style.display = 'block';
-                // Salva a sessão para não pedir senha ao atualizar
-                sessionStorage.setItem('acesso-permitido', 'true');
+                localStorage.setItem('acesso', 'true');
             } else {
                 msgErro.style.display = 'block';
                 document.getElementById('campo-senha').value = '';
             }
         }
 
-        // Verifica se já fez login antes
-        window.onload = function() {
-            if (sessionStorage.getItem('acesso-permitido') === 'true') {
-                document.getElementById('tela-login').style.display = 'none';
-                document.getElementById('conteudo-site').style.display = 'block';
-            }
-        };
+        // Auto-login se já entrou antes
+        if (localStorage.getItem('acesso') === 'true') {
+            document.getElementById('tela-login').style.display = 'none';
+            document.getElementById('conteudo-site').style.display = 'block';
+        }
 
-        // --- SISTEMA DO PLAYER ---
+        // PLAYER
         const player = document.getElementById('video-main');
-        const listaSugeridos = document.getElementById('lista-videos');
-
         const videos = [
-            {arquivo: 'video2.mp4', foto: 'fotovd2.jpg', titulo: 'Conteúdo Exclusivo 2'},
-            {arquivo: 'video3.mp4', foto: 'fotovd3.jpg', titulo: 'Conteúdo Exclusivo 3'},
-            {arquivo: 'video4.mp4', foto: 'fotovd4.jpg', titulo: 'Conteúdo Exclusivo 4'},
-            {arquivo: 'video5.mp4', foto: 'fotovd6.jpg', titulo: 'Conteúdo Exclusivo 5'},
-            {arquivo: 'video9.mp4', foto: 'fotovd5.jpg', titulo: 'Conteúdo Exclusivo 6'},
-            {arquivo: 'video7.mp4', foto: 'fotovd8.jpg', titulo: 'Conteúdo Exclusivo 7'}
+            {arquivo: 'video2.mp4', foto: 'fotovd2.jpg', titulo: 'Vídeo 2'},
+            {arquivo: 'video3.mp4', foto: 'fotovd3.jpg', titulo: 'Vídeo 3'},
+            {arquivo: 'video4.mp4', foto: 'fotovd4.jpg', titulo: 'Vídeo 4'}
         ];
 
+        const lista = document.getElementById('lista-videos');
         videos.forEach(v => {
-            listaSugeridos.innerHTML += `
+            lista.innerHTML += `
                 <div class="card-video" onclick="trocarVideo('${v.arquivo}', '${v.foto}', '${v.titulo}')">
-                    <img src="${v.foto}" class="thumb-pequena" alt="Poster">
-                    <div class="info-card">
-                        <h4>${v.titulo}</h4>
-                        <p>${Math.floor(Math.random() * 500) + 10}k visualizações</p>
-                    </div>
+                    <img src="${v.foto}" class="thumb-pequena">
+                    <div><h4 style="margin:0; font-size:14px;">${v.titulo}</h4></div>
                 </div>`;
         });
 
-        function pular(segundos) {
-            if (player.readyState >= 1) {
-                let tempo = player.currentTime + segundos;
-                player.currentTime = Math.max(0, Math.min(tempo, player.duration));
-            }
+        function trocarVideo(arq, capa, tit) {
+            player.pause();
+            player.src = arq;
+            player.poster = capa;
+            document.getElementById('titulo-atual').innerText = tit;
+            player.load();
+            player.play().catch(() => {});
         }
 
+        // Pular 10s no toque duplo lateral
         let lastTap = 0;
         document.getElementById('video-container').addEventListener('touchstart', (e) => {
             const now = Date.now();
             if (now - lastTap < 300) {
                 const rect = player.getBoundingClientRect();
                 const x = e.touches[0].clientX - rect.left;
-                x > rect.width / 2 ? pular(10) : pular(-10);
+                player.currentTime += (x > rect.width / 2 ? 10 : -10);
                 e.preventDefault();
             }
             lastTap = now;
         });
-
-        window.addEventListener('keydown', (e) => {
-            if (document.activeElement.id === 'lupa' || document.activeElement.id === 'campo-senha') return;
-            if (e.key === 'ArrowRight') pular(10);
-            if (e.key === 'ArrowLeft') pular(-10);
-            if (e.key === 'Enter' && document.getElementById('tela-login').style.display !== 'none') verificarSenha();
-        });
-
-        function trocarVideo(arq, capa, tit) {
-            player.pause();
-            player.removeAttribute('src');
-            player.load(); 
-            player.src = arq;
-            player.poster = capa;
-            document.getElementById('titulo-atual').innerText = tit;
-            player.load();
-            player.play().catch(() => {});
-            window.scrollTo({top: 0, behavior: 'smooth'});
-        }
     </script>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DM Premium - Versão Final Otimizada</title>
-    <style>
-        :root {
-            --cor-principal: #ff0000;
-            --cor-fundo: #0b0b0b;
-            --cor-card: #161616;
-            --cor-texto: #ffffff;
-        }
-
-        /* TELA DE LOGIN */
-        #tela-login {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-color: var(--cor-fundo);
-            display: flex; align-items: center; justify-content: center;
-            z-index: 9999;
-        }
-
-        .caixa-login {
-            background: var(--cor-card);
-            padding: 40px;
-            border-radius: 15px;
-            text-align: center;
-            border: 1px solid #333;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-            width: 90%;
-            max-width: 350px;
-        }
-
-        .caixa-login h1 { color: var(--cor-principal); margin-bottom: 20px; font-family: sans-serif; }
-
-        .caixa-login input {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            border: 1px solid #444;
-            background: #000;
-            color: #fff;
-            font-size: 16px;
-            box-sizing: border-box;
-            outline: none;
-        }
-
-        .caixa-login input:focus { border-color: var(--cor-principal); }
-
-        .caixa-login button {
-            width: 100%;
-            padding: 12px;
-            background: var(--cor-principal);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .caixa-login button:active { transform: scale(0.98); }
-
-        /* ESCONDER SITE POR PADRÃO */
-        #conteudo-site { display: none; }
-
-        /* ESTILOS DO SITE */
-        body {
-            background-color: var(--cor-fundo);
-            color: var(--cor-texto);
-            font-family: 'Segoe UI', Roboto, sans-serif;
-            margin: 0; padding: 0;
-            overflow-x: hidden;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        .header {
-            background-color: rgba(11, 11, 11, 0.95);
-            padding: 12px;
-            display: flex; justify-content: center;
-            border-bottom: 1px solid #222;
-            position: sticky; top: 0; z-index: 100;
-            backdrop-filter: blur(10px);
-        }
-
-        #lupa {
-            width: 90%; max-width: 500px; padding: 10px 18px;
-            border-radius: 20px; border: 1px solid #333;
-            background-color: #000; color: white; outline: none;
-            transition: border 0.3s;
-        }
-        #lupa:focus { border-color: var(--cor-principal); }
-
-        .container {
-            max-width: 1200px; margin: auto;
-            display: flex; flex-wrap: wrap; gap: 20px; padding: 15px;
-        }
-
-        .area-principal { flex: 2; min-width: 320px; }
-
-        .video-wrapper {
-            position: relative;
-            width: 100%;
-            background-color: #000;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-
-        video { width: 100%; aspect-ratio: 16 / 9; display: block; cursor: pointer; }
-
-        .area-lateral { flex: 1; min-width: 300px; }
-        
-        .titulo-sessao {
-            font-size: 16px; margin-bottom: 15px; color: #888;
-            text-transform: uppercase; letter-spacing: 1px;
-            border-left: 3px solid var(--cor-principal); padding-left: 10px;
-        }
-
-        .card-video {
-            display: flex; gap: 12px; cursor: pointer;
-            padding: 10px; margin-bottom: 8px;
-            border-radius: 8px; transition: background 0.2s;
-            text-decoration: none; color: white;
-        }
-        .card-video:hover { background-color: var(--cor-card); }
-
-        .thumb-pequena { width: 130px; height: 75px; background-color: #222; border-radius: 6px; object-fit: cover; }
-        .info-card h4 { margin: 0; font-size: 14px; color: #eee; }
-        .info-card p { margin: 4px 0 0 0; font-size: 12px; color: #666; }
-
-        @media (max-width: 850px) {
-            .container { flex-direction: column; }
-            .area-lateral { width: 100%; }
-        }
-    </style>
-</head>
-<body>
-
-    <div id="tela-login">
-        <div class="caixa-login">
-            <h1>DM Premium</h1>
-            <p style="margin-bottom: 15px; color: #ccc;">Acesso Restrito</p>
-            <input type="password" id="campo-senha" placeholder="Digite a senha...">
-            <button onclick="verificarSenha()">ENTRAR</button>
-            <p id="msg-erro" style="color: var(--cor-principal); font-size: 13px; margin-top: 15px; display: none;">Senha Incorreta!</p>
-        </div>
-    </div>
-
-    <div id="conteudo-site">
-        <div class="header">
-            <input type="text" id="lupa" placeholder="🔍 Buscar conteúdo...">
-        </div>
-
-        <div class="container">
-            <div class="area-principal">
-                <div class="video-wrapper" id="video-container">
-                    <video id="video-main" controls playsinline preload="metadata" poster="fotovd7.jpg">
-                        <source id="video-source" src="video1.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <h2 id="titulo-atual" style="font-size: 1.2rem; margin: 15px 0 5px;">Vídeo Premium 1</h2>
-                <p style="color: #555; font-size: 12px;">Dica: Toque duplo para pular 10s | Use as setas no teclado.</p>
-            </div>
-
-            <div class="area-lateral">
-                <h3 class="titulo-sessao">Mais Vídeos</h3>
-                <div id="lista-videos"></div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // --- SISTEMA DE LOGIN ---
-        function verificarSenha() {
-            const senhaDigitada = document.getElementById('campo-senha').value;
-            const senhaCorreta = "DMpr10";
-            const msgErro = document.getElementById('msg-erro');
-
-            if (senhaDigitada === senhaCorreta) {
-                document.getElementById('tela-login').style.display = 'none';
-                document.getElementById('conteudo-site').style.display = 'block';
-                // Salva a sessão para não pedir senha ao atualizar
-                sessionStorage.setItem('acesso-permitido', 'true');
-            } else {
-                msgErro.style.display = 'block';
-                document.getElementById('campo-senha').value = '';
-            }
-        }
-
-        // Verifica se já fez login antes
-        window.onload = function() {
-            if (sessionStorage.getItem('acesso-permitido') === 'true') {
-                document.getElementById('tela-login').style.display = 'none';
-                document.getElementById('conteudo-site').style.display = 'block';
-            }
-        };
-
-        // --- SISTEMA DO PLAYER ---
-        const player = document.getElementById('video-main');
-        const listaSugeridos = document.getElementById('lista-videos');
-
-        const videos = [
-            {arquivo: 'video2.mp4', foto: 'fotovd2.jpg', titulo: 'Conteúdo Exclusivo 2'},
-            {arquivo: 'video3.mp4', foto: 'fotovd3.jpg', titulo: 'Conteúdo Exclusivo 3'},
-            {arquivo: 'video4.mp4', foto: 'fotovd4.jpg', titulo: 'Conteúdo Exclusivo 4'},
-            {arquivo: 'video5.mp4', foto: 'fotovd6.jpg', titulo: 'Conteúdo Exclusivo 5'},
-            {arquivo: 'video9.mp4', foto: 'fotovd5.jpg', titulo: 'Conteúdo Exclusivo 6'},
-            {arquivo: 'video7.mp4', foto: 'fotovd8.jpg', titulo: 'Conteúdo Exclusivo 7'}
-        ];
-
-        videos.forEach(v => {
-            listaSugeridos.innerHTML += `
-                <div class="card-video" onclick="trocarVideo('${v.arquivo}', '${v.foto}', '${v.titulo}')">
-                    <img src="${v.foto}" class="thumb-pequena" alt="Poster">
-                    <div class="info-card">
-                        <h4>${v.titulo}</h4>
-                        <p>${Math.floor(Math.random() * 500) + 10}k visualizações</p>
-                    </div>
-                </div>`;
-        });
-
-        function pular(segundos) {
-            if (player.readyState >= 1) {
-                let tempo = player.currentTime + segundos;
-                player.currentTime = Math.max(0, Math.min(tempo, player.duration));
-            }
-        }
-
-        let lastTap = 0;
-        document.getElementById('video-container').addEventListener('touchstart', (e) => {
-            const now = Date.now();
-            if (now - lastTap < 300) {
-                const rect = player.getBoundingClientRect();
-                const x = e.touches[0].clientX - rect.left;
-                x > rect.width / 2 ? pular(10) : pular(-10);
-                e.preventDefault();
-            }
-            lastTap = now;
-        });
-
-        window.addEventListener('keydown', (e) => {
-            if (document.activeElement.id === 'lupa' || document.activeElement.id === 'campo-senha') return;
-            if (e.key === 'ArrowRight') pular(10);
-            if (e.key === 'ArrowLeft') pular(-10);
-            if (e.key === 'Enter' && document.getElementById('tela-login').style.display !== 'none') verificarSenha();
-        });
-
-        function trocarVideo(arq, capa, tit) {
-            player.pause();
-            player.removeAttribute('src');
-            player.load(); 
-            player.src = arq;
-            player.poster = capa;
-            document.getElementById('titulo-atual').innerText = tit;
-            player.load();
-            player.play().catch(() => {});
-            window.scrollTo({top: 0, behavior: 'smooth'});
-        }
-    </script>
-
 </body>
 </html>
